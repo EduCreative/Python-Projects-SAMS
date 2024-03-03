@@ -11,10 +11,14 @@ class Face_Recognition_System:
         #add background images
         img = Image.open("H:\\My Drive\\Python-Projects-SAMS\\images\\9117392.jpg")
         img = img.resize((830,640))
-        self.phtoimg=ImageTk.PhotoImage(img)
+        self.photoimg=ImageTk.PhotoImage(img)
 
-        firstLabel = Label(self.root, image=self.phtoimg)
-        firstLabel.place(x=0,y=0, widt=830,height=640)
+        bg_img = Label(self.root, image=self.photoimg)
+        bg_img.place(x=0,y=0, width=830, height=640)
+
+        # Title Label
+        title_lable = Label(bg_img, text="FACE RECOGNTION ATTENDANCE SYSTEM", font=("Arial",20, "bold"),bg="white", fg="red")
+        title_lable.place(x=0, y=0, width=840,height=60)
 
 if __name__== "__main__":
     root = Tk()
