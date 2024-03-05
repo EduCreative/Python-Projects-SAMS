@@ -17,30 +17,30 @@ class Face_Recognition_System:
         bg_img.place(x=0,y=0, width=830, height=640)
 
         # Title Label
-        title_lable = Label(bg_img, text="FACE RECOGNTION ATTENDANCE SYSTEM", font=("Arial",20, "bold"),bg="white", fg="red")
+        title_lable = Label(bg_img, text="FACE RECOGNTION ATTENDANCE SYSTEM", font=("Arial",20, "bold"),bg="gray", fg="darkred")
         title_lable.place(x=0, y=0, width=840,height=60)
 
         #add button image
         imgbtn1 = Image.open(r"H:\\My Drive\\Python-Projects-SAMS\\images\\add.png")
-        imgbtn1 = imgbtn1.resize((50,60))
+        imgbtn1 = imgbtn1.resize((80,80))
         self.btn1=ImageTk.PhotoImage(imgbtn1)
 
-        b1=Button(bg_img, image=self.btn1, cursor="hand2")
-        b1.place(x=200,y=100, width=130, height=100)
+        b1=Button(bg_img, image=self.btn1, cursor="hand2", bg="blue")
+        b1.place(x=20,y=100, width=140, height=100)
 
         b1_1=Button(bg_img, text="Add Student Detail", cursor="hand2")
-        b1_1.place(x=200,y=200, width=130, height=40)
+        b1_1.place(x=20,y=200, width=140, height=40)
 
         #button
-        imgbtn2 = Image.open(r"H:\\My Drive\\Python-Projects-SAMS\\images\\add.png")
-        imgbtn2 = imgbtn2.resize((50,60))
+        imgbtn2 = Image.open(r"H:\\My Drive\\Python-Projects-SAMS\\images\\btn1.jpg")
+        imgbtn2 = imgbtn2.resize((120,80))
         self.btn2=ImageTk.PhotoImage(imgbtn2)
 
-        b2=Button(bg_img, image=self.btn2, cursor="hand2")
-        b2.place(x=400,y=100, width=130, height=100)
+        b2=Button(bg_img, image=self.btn2, cursor="hand2", bg="gray")
+        b2.place(x=220,y=100, width=140, height=100)
 
-        b2_2=Button(bg_img, text="Add Student Attendance", cursor="hand2")
-        b2_2.place(x=400,y=200, width=130, height=40)
+        b2_2=Button(bg_img, text="Face Recognition", cursor="hand2")
+        b2_2.place(x=220,y=200, width=140, height=40)
 
         #button
         imgbtn3 = Image.open(r"H:\\My Drive\\Python-Projects-SAMS\\images\\add.png")
@@ -48,10 +48,68 @@ class Face_Recognition_System:
         self.btn3=ImageTk.PhotoImage(imgbtn3)
 
         b3=Button(bg_img, image=self.btn3, cursor="hand2")
-        b3.place(x=600,y=100, width=130, height=100)
+        b3.place(x=420,y=100, width=140, height=100)
 
-        b3_3=Button(bg_img, text="Student Attendance", cursor="hand2")
-        b3_3.place(x=600,y=200, width=130, height=40)
+        b3_3=Button(bg_img, text="Add Attendance", cursor="hand2")
+        b3_3.place(x=420,y=200, width=140, height=40)
+
+        #button
+        imgbtn4 = Image.open(r"H:\\My Drive\\Python-Projects-SAMS\\images\\add.png")
+        imgbtn4 = imgbtn4.resize((80,80))
+        self.btn4=ImageTk.PhotoImage(imgbtn4)
+
+        b4=Button(bg_img, image=self.btn4, cursor="hand2")
+        b4.place(x=620,y=100, width=140, height=100)
+
+        b4_4=Button(bg_img, text="Help Desk", cursor="hand2")
+        b4_4.place(x=620,y=200, width=140, height=40)
+
+
+        #next row of buttons
+
+        #add button image
+        imgbtn5 = Image.open(r"H:\\My Drive\\Python-Projects-SAMS\\images\\add.png")
+        imgbtn5 = imgbtn5.resize((80,80))
+        self.btn5=ImageTk.PhotoImage(imgbtn5)
+
+        b5=Button(bg_img, image=self.btn5, cursor="hand2", bg="blue")
+        b5.place(x=20,y=400, width=140, height=100)
+
+        b5_5=Button(bg_img, text="Train Data", cursor="hand2")
+        b5_5.place(x=20,y=500, width=140, height=40)
+
+        #button
+        imgbtn6 = Image.open(r"H:\\My Drive\\Python-Projects-SAMS\\images\\btn1.jpg")
+        imgbtn6 = imgbtn6.resize((120,80))
+        self.btn6=ImageTk.PhotoImage(imgbtn6)
+
+        b6=Button(bg_img, image=self.btn6, cursor="hand2", bg="gray")
+        b6.place(x=220,y=400, width=140, height=100)
+
+        b6_6=Button(bg_img, text="Photos", cursor="hand2")
+        b6_6.place(x=220,y=500, width=140, height=40)
+
+        #button
+        imgbtn7 = Image.open(r"H:\\My Drive\\Python-Projects-SAMS\\images\\add.png")
+        imgbtn7 = imgbtn7.resize((80,80))
+        self.btn7=ImageTk.PhotoImage(imgbtn7)
+
+        b7=Button(bg_img, image=self.btn7, cursor="hand2")
+        b7.place(x=420,y=400, width=140, height=100)
+
+        b7_7=Button(bg_img, text="Developer", cursor="hand2")
+        b7_7.place(x=420,y=500, width=140, height=40)
+
+        #button
+        imgbtn8 = Image.open(r"H:\\My Drive\\Python-Projects-SAMS\\images\\add.png")
+        imgbtn8 = imgbtn8.resize((80,80))
+        self.btn8=ImageTk.PhotoImage(imgbtn8)
+
+        b8=Button(bg_img, image=self.btn8, cursor="hand2")
+        b8.place(x=620,y=400, width=140, height=100)
+
+        b8_8=Button(bg_img, text=" Exit ", cursor="hand2")
+        b8_8.place(x=620,y=500, width=140, height=40)
 
 if __name__== "__main__":
     root = Tk()
