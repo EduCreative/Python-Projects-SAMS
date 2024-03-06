@@ -1,6 +1,7 @@
 from tkinter import*
 from tkinter import ttk
 from PIL import Image, ImageTk
+from student import Student
 
 class Face_Recognition_System:
     def __init__(self, root):
@@ -25,10 +26,10 @@ class Face_Recognition_System:
         imgbtn1 = imgbtn1.resize((80,80))
         self.btn1=ImageTk.PhotoImage(imgbtn1)
 
-        b1=Button(bg_img, image=self.btn1, cursor="hand2", bg="blue")
+        b1=Button(bg_img, image = self.btn1, command = self.student_details, cursor="hand2", bg="blue")
         b1.place(x=20,y=100, width=140, height=100)
 
-        b1_1=Button(bg_img, text="Add Student Detail", cursor="hand2")
+        b1_1=Button(bg_img, text="Add Student Detail", command = self.student_details, cursor="hand2")
         b1_1.place(x=20,y=200, width=140, height=40)
 
         #button
@@ -43,7 +44,7 @@ class Face_Recognition_System:
         b2_2.place(x=220,y=200, width=140, height=40)
 
         #button
-        imgbtn3 = Image.open(r"H:\\My Drive\\Python-Projects-SAMS\\images\\add.png")
+        imgbtn3 = Image.open(r"H:\\My Drive\\Python-Projects-SAMS\\images\\btn1.jpg")
         imgbtn3 = imgbtn3.resize((80,80))
         self.btn3=ImageTk.PhotoImage(imgbtn3)
 
@@ -54,7 +55,7 @@ class Face_Recognition_System:
         b3_3.place(x=420,y=200, width=140, height=40)
 
         #button
-        imgbtn4 = Image.open(r"H:\\My Drive\\Python-Projects-SAMS\\images\\add.png")
+        imgbtn4 = Image.open(r"H:\\My Drive\\Python-Projects-SAMS\\images\\btn1.jpg")
         imgbtn4 = imgbtn4.resize((80,80))
         self.btn4=ImageTk.PhotoImage(imgbtn4)
 
@@ -68,7 +69,7 @@ class Face_Recognition_System:
         #next row of buttons
 
         #add button image
-        imgbtn5 = Image.open(r"H:\\My Drive\\Python-Projects-SAMS\\images\\add.png")
+        imgbtn5 = Image.open(r"H:\\My Drive\\Python-Projects-SAMS\\images\\btn1.jpg")
         imgbtn5 = imgbtn5.resize((80,80))
         self.btn5=ImageTk.PhotoImage(imgbtn5)
 
@@ -90,7 +91,7 @@ class Face_Recognition_System:
         b6_6.place(x=220,y=500, width=140, height=40)
 
         #button
-        imgbtn7 = Image.open(r"H:\\My Drive\\Python-Projects-SAMS\\images\\add.png")
+        imgbtn7 = Image.open(r"H:\\My Drive\\Python-Projects-SAMS\\images\\btn1.jpg")
         imgbtn7 = imgbtn7.resize((80,80))
         self.btn7=ImageTk.PhotoImage(imgbtn7)
 
@@ -101,7 +102,7 @@ class Face_Recognition_System:
         b7_7.place(x=420,y=500, width=140, height=40)
 
         #button
-        imgbtn8 = Image.open(r"H:\\My Drive\\Python-Projects-SAMS\\images\\add.png")
+        imgbtn8 = Image.open(r"H:\\My Drive\\Python-Projects-SAMS\\images\\btn1.jpg")
         imgbtn8 = imgbtn8.resize((80,80))
         self.btn8=ImageTk.PhotoImage(imgbtn8)
 
@@ -111,8 +112,16 @@ class Face_Recognition_System:
         b8_8=Button(bg_img, text=" Exit ", cursor="hand2")
         b8_8.place(x=620,y=500, width=140, height=40)
 
+
+    #function buttons
+    def student_details(self):
+        self.new_window=Toplevel(self.root)
+        self.app=Student(self.new_window)
+
+
 if __name__== "__main__":
     root = Tk()
     obj=Face_Recognition_System(root)
     root.mainloop()
+
 
