@@ -53,7 +53,7 @@ class Student:
 
         #department ComboBox
         dep_combo = ttk.Combobox(current_course_frame, textvariable=self.var_dept, font=("Arial", 10, "bold" ), state="readonly",width=17)
-        dep_combo["values"]=("Select Department", "Computer", "IT", "Business")
+        dep_combo["values"]=("Select Department", "Computer", "Business")
         dep_combo.current(0)
         dep_combo.grid(row=0, column=1, padx=2, pady=2)
 
@@ -63,7 +63,7 @@ class Student:
 
         #Course ComboBox
         course_combo = ttk.Combobox(current_course_frame, textvariable=self.var_course, font=("Arial", 10, "bold" ), state="readonly",width=17)
-        course_combo["values"]=("Select Course", "Computer", "IT", "Business")
+        course_combo["values"]=("Select Course", "Software Engineering", "IT", "Business Administration")
         course_combo.current(0)
         course_combo.grid(row=1, column=1, padx=2, pady=2)
 
@@ -73,7 +73,7 @@ class Student:
 
         #Year ComboBox
         year_combo = ttk.Combobox(current_course_frame, textvariable=self.var_year, font=("Arial", 10, "bold" ), state="readonly",width=17)
-        year_combo["values"]=("Select year", "Computer", "IT", "Business")
+        year_combo["values"]=("Select year", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025")
         year_combo.current(0)
         year_combo.grid(row=2, column=1, padx=2, pady=2)
 
@@ -83,7 +83,7 @@ class Student:
 
         #Semester ComboBox
         semester_combo = ttk.Combobox(current_course_frame, textvariable=self.var_semester, font=("Arial", 10, "bold" ), state="readonly",width=17)
-        semester_combo["values"]=("Select year", "Computer", "IT", "Business")
+        semester_combo["values"]=("Select Semester", "1st", "2nd", "3rd", "4th")
         semester_combo.current(0)
         semester_combo.grid(row=3, column=1, padx=2, pady=2)
 
@@ -149,15 +149,15 @@ class Student:
         save_btn.grid(row=0, column=0)
 
         #Update button
-        update_btn=Button(btn_frame, text="Update", width=8, font=("Arial", 10, "bold"))
+        update_btn=Button(btn_frame, text="Update", command=self.update_data, width=8, font=("Arial", 10, "bold"))
         update_btn.grid(row=0, column=1)
 
         #Delete button
-        delete_btn=Button(btn_frame, text="Delete", width=8, font=("Arial", 10, "bold"))
+        delete_btn=Button(btn_frame, text="Delete", command=self.delete_data, width=8, font=("Arial", 10, "bold"))
         delete_btn.grid(row=0, column=2)
 
         #Reset button
-        reset_btn=Button(btn_frame, text="Reset", width=8, font=("Arial", 10, "bold"))
+        reset_btn=Button(btn_frame, text="Reset", command=self.reset_data, width=8, font=("Arial", 10, "bold"))
         reset_btn.grid(row=0, column=3)
 
         #Take a Photo button
@@ -208,7 +208,7 @@ class Student:
         scroll_x = ttk.Scrollbar(table_frame, orient=HORIZONTAL)
         scroll_y = ttk.Scrollbar(table_frame, orient=VERTICAL)
 
-        self.student_table=ttk.Treeview(table_frame,columns=("dept","course", "year", "semester", "std_id", "student_name", "father_name", "address", "phone"), xscrollcommand=scroll_x.set, yscrollcommand=scroll_y.set)
+        self.student_table=ttk.Treeview(table_frame,columns=("dept","course", "year", "semester", "std_id", "student_name", "father_name", "address", "phone", "sample_photo"), xscrollcommand=scroll_x.set, yscrollcommand=scroll_y.set)
         scroll_x.pack(side=BOTTOM, fill=X)
         scroll_y.pack(side=RIGHT, fill=Y)
         scroll_x.config(command=self.student_table.xview)
@@ -223,6 +223,8 @@ class Student:
         self.student_table.heading("father_name", text="Father Name")
         self.student_table.heading("address", text="Address")
         self.student_table.heading("phone", text="Phone")
+        self.student_table.heading("sample_photo", text="Sample Photo")
+        
 
         self.student_table.column("dept", width=100)
         self.student_table.column("course", width=100)
@@ -233,9 +235,11 @@ class Student:
         self.student_table.column("father_name", width=100)
         self.student_table.column("address", width=100)
         self.student_table.column("phone", width=100)
+        self.student_table.column("sample_photo", width=100)
          
         self.student_table["show"]="headings"
         self.student_table.pack(fill=BOTH, expand=1)
+        self.student_table.bind("<ButtonRelease>", self.get_cursor)
         self.fetch_data()
 
     # funciton declaration
@@ -246,13 +250,13 @@ class Student:
             try:
                 conn=mysql.connector.connect(host="localhost", user="root", password="password@123", database="sams")
                 my_cursor=conn.cursor()
-                my_cursor.execute("insert into student values(%s,%s,%s,%s,%s,%s,%s,%s,%s)", (self.var_dept.get(), self.var_course.get(), self.var_semester.get(), self.var_year.get(), self.var_std_id.get(), self.var_student_name.get(), self.var_father_name.get(), self.var_address.get(), self.var_phone.get()))
+                my_cursor.execute("insert into student values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)", (self.var_dept.get(), self.var_course.get(), self.var_semester.get(), self.var_year.get(), self.var_std_id.get(), self.var_student_name.get(), self.var_father_name.get(), self.var_address.get(), self.var_phone.get(), self.var_radio1.get()))
                 conn.commit()
                 self.fetch_data()
                 conn.close()
                 messagebox.showinfo("Success", "Student Detailed has been added succesfully!", parent=self.root)        
             except Exception as es:
-                messagebox.showerror("Error",f"Due to :(str(es)", parent=self.root)
+                messagebox.showerror("Error", f"Due to: {str(es)}", parent=self.root)
     
 
     #To Fetch Data from table and display in form
@@ -271,8 +275,89 @@ class Student:
 
 
 
-        
+    #To get table data into form after click on record
+    def get_cursor(self, event=""):
+        cursor_focus = self.student_table.focus()
+        content = self.student_table.item(cursor_focus)
+        data = content["values"]
 
+        self.var_dept.set(data[0]),
+        self.var_course.set(data[1]),
+        self.var_semester.set(data[2]),
+        self.var_year.set(data[3]),
+        self.var_std_id.set(data[4]),
+        self.var_student_name.set(data[5]),
+        self.var_father_name.set(data[6]),
+        self.var_address.set(data[7]),
+        self.var_phone.set(data[8]),
+        self.var_radio1.set(data[9]),
+      
+    #To update table data into form after click on record
+    def update_data(self):
+        if self.var_dept.get()=="Select Deparment" or self.var_student_name.get()=="":
+            messagebox.showerror("Error", "All Fields are required", parent=self.root)
+        else:
+            try:
+                update=messagebox.askyesno("Update", "Do you want to Update Student Details?", parent=self.root)
+                if update>0:
+                    conn=mysql.connector.connect(host="localhost", user="root", password="password@123", database="sams")
+                    my_cursor=conn.cursor()
+                    my_cursor.execute("update student SET dept=%s, course=%s, semester=%s, year=%s, student_name=%s, father_name=%s, address=%s, phone=%s, sample_photo=%s where std_id=%s", (self.var_dept.get(), self.var_course.get(), self.var_semester.get(), self.var_year.get(), self.var_student_name.get(), self.var_father_name.get(), self.var_address.get(), self.var_phone.get(), self.var_radio1.get(), self.var_std_id.get()) )
+                    #UPDATE `sams`.`student` SET `dept` = 'Computer', `semester` = '1st', `year` = '2024' WHERE (`std_id` = '2');
+
+                else:
+                    if not update:
+                        return
+        
+                messagebox.showinfo("Success", "Student Details successfully updated!", parent=self.root)
+                conn.commit()
+                self.fetch_data()
+                conn.close()
+
+            except Exception as es:
+                messagebox.showerror("Error", f"Due to: {str(es)}", parent=self.root)
+
+    #To Delete data
+    def delete_data(self):
+        if self.var_std_id.get()=="":
+            messagebox.showerror("Error", "Student ID is required", parent=self.root)
+        else:
+            try:
+                delete=messagebox.askyesno("Delete", "Do you want to Delete Student Details?", parent=self.root)
+                if delete>0:
+                    conn=mysql.connector.connect(host="localhost", user="root", password="password@123", database="sams")
+                    my_cursor=conn.cursor()
+                    sql="delete from student where std_id=%s"
+                    val=(self.var_std_id.get(),)
+                    my_cursor.execute(sql, val)
+                else:
+                    if not delete:
+                        return
+                
+                conn.commit()
+                self.fetch_data()
+                conn.close()
+                messagebox.showinfo("Delete", "Record Deleted Successfully", parent=self.root)
+
+            except Exception as es:
+                messagebox.showerror("Error", f"Due to: {str(es)}", parent=self.root)
+
+
+    
+    #To Reset data
+    def reset_data(self):
+        self.var_dept.set("Select Department")
+        self.var_course.set("Select Course")
+        self.var_semester.set("Select Semester")
+        self.var_year.set("Select Year")
+
+        self.var_std_id.set("")
+        self.var_student_name.set("")
+        self.var_father_name.set("")
+        self.var_address.set("")
+        self.var_phone.set("")
+        self.var_radio1.set("")
+        
     #SQL Query to insert record
     #INSERT INTO `sams`.`student` (`std_id`, `student_name`, `father_name`, `Address`, `phone`, `dept`, `course`, `semester`, `year`) VALUES ('1', 'Ali', 'Ahhmed', 'House NO. 123, Latifabad', '0333-1306603', 'Computer', 'BSWE', '2nd', '2024');
                 
