@@ -7,7 +7,6 @@ import cv2
 import os
 import numpy as np
 
-
 class Train:
     def __init__(self, root):
         #Make a Window
