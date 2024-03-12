@@ -44,19 +44,27 @@ class Face_Recognition:
         b1_1.place(x=200,y=200, width=540, height=40)
     
     #Attendance
-    def mark_attendance(self, i, r, n, d):
+    def mark_attendance(self, id, name, fname, dept):
         with open("attendance.csv", "r+", newline="\n") as f:
-            myDataList =f.readlines()
+            myDataList = f.readlines()
             name_list = []
+            #print(myDataList)
+
             for line in myDataList:
                 entry = line.split((","))
                 name_list.append(entry[0])
-            if((i not in name_list) and (r not in name_list) and (n not in name_list) and (d not in name_list)):
+                #print(entry)                
+            #print(name_list)
+            #print(str(id))
+            #print(str(id) not in name_list)
+
+            if(str(id) not in name_list):
+                print(name_list)
+               #and (name not in name_list) and (fname not in name_list) and (dept not in name_list)):
                 now = datetime.now()
                 d1 = now.strftime("%d/%m/%Y")
                 dtString = now.strftime("%H:%M:%S")
-                f.writelines(f"\n{i},{r},{n},{d},{dtString}, {d1}, Present")
-
+                f.writelines(f"\n{id},{name},{fname},{dept},{dtString}, {d1}, Present")
 
     #Face Recognition
     def face_recog(self):
@@ -75,19 +83,23 @@ class Face_Recognition:
                 my_cursor=conn.cursor()
 
                 my_cursor.execute("select student_name from student where std_id = "+ str(id))
-                i = my_cursor.fetchone()
-                i = "+".join(i)
+                n = my_cursor.fetchone()
+                n = "+".join(n)
 
                 my_cursor.execute("select father_name from student where std_id = "+ str(id))
                 f = my_cursor.fetchone()
                 f = "+".join(f)
 
+                my_cursor.execute("select dept from student where std_id = "+ str(id))
+                d = my_cursor.fetchone()
+                d = "+".join(d)
               
                 if confidence > 77:
-                    cv2.putText(img, f"Student ID:{id}",(x,y-55), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
-                    cv2.putText(img, f"Student Name:{i}",(x,y-30), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
-                    cv2.putText(img, f"Father Name:{f}",(x,y-5), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
-                    self.mark_attendance(i, r, n, d)
+                    cv2.putText(img, f"Student ID:{id}",(x,y-75), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
+                    cv2.putText(img, f"Student Name:{n}",(x,y-55), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
+                    cv2.putText(img, f"Father Name:{f}",(x,y-30), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
+                    cv2.putText(img, f"Department:{d}",(x,y-5), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
+                    self.mark_attendance(id, n, f, d)
                 else:
                     cv2.rectangle(img,(x,y),(x+w, y+h), (0, 0, 255), 3)
                     cv2.putText(img, "Unknown Face",(x,y-55), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
