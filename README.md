@@ -38,9 +38,13 @@ Users should be able to:
 - Make backup on Hard Drive and Flash Drive. 
 
 ## Screenshot
-# NOT UPDATED YET
-![Screenshot (67)](https://github.com/EduCreative/FrontendMentor-result-summary/assets/108581855/65668f3e-5df2-4616-92b9-7c6c8aa22ab5)
-![Screenshot (66)](https://github.com/EduCreative/FrontendMentor-result-summary/assets/108581855/7a820dab-0719-4cc3-b5a0-73c0d8bdcdf6)
+### Main Menu
+![Screenshot (1)](https://github.com/EduCreative/Python-Projects-SAMS/blob/main/images/Screenshot1.png)
+### Add Student Details
+![Screenshot (1)](https://github.com/EduCreative/Python-Projects-SAMS/blob/main/images/Screenshot2.png)
+### Attendance Record
+![Screenshot (1)](https://github.com/EduCreative/Python-Projects-SAMS/blob/main/images/Screenshot3.png)
+
 
 ## Links
 # NOT UPDATED YET
