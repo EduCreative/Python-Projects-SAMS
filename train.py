@@ -22,9 +22,8 @@ class Train:
         bg_img = Label(self.root, image=self.photoimg)
         bg_img.place(x=0,y=0, width=1000, height=800)
 
-        # Title Label
-        title_lable = Label(bg_img, text="TRAIN DATA SET", font=("Arial",20, "bold"),bg="white", fg="darkgreen")
-        title_lable.place(x=0, y=0, width=1000,height=60)        #add background images
+        
+        #add background images
         img = Image.open("images\\9117392.jpg")
         img = img.resize((1000,800))
         self.photoimg=ImageTk.PhotoImage(img)
@@ -34,11 +33,19 @@ class Train:
 
         # Title Label
         title_lable = Label(bg_img, text="TRAIN DATA SET", font=("Arial",20, "bold"),bg="white", fg="darkgreen")
-        title_lable.place(x=0, y=0, width=1000,height=60)
+        title_lable.place(x=0, y=0, width=860,height=60)
 
         # Training Button
-        b1_1=Button(self.root, text="TRAIN DATA SET", command=self.train_classifier, cursor="hand2", bg="purple", fg="white")
-        b1_1.place(x=200,y=200, width=540, height=40)
+        imgbtn2 = Image.open(r"images\\trainData.jpg")
+        imgbtn2 = imgbtn2.resize((200, 160))
+        self.btn2=ImageTk.PhotoImage(imgbtn2)
+
+        b2=Button(self.root, image=self.btn2, command=self.train_classifier, cursor="hand2", bg="purple")
+        b2.place(x=320,y=200, width=200, height=160)
+
+        b2_1=Button(self.root, text="TRAIN DATA SET", command=self.train_classifier, cursor="hand2", bg="purple", fg="white")
+        b2_1.place(x=320,y=360, width=200, height=40)
+
 
     def train_classifier(self):
         #messagebox.showinfo("Start", "Training datasets Started!")

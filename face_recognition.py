@@ -37,18 +37,25 @@ class Face_Recognition:
 
         # Title Label
         title_lable = Label(bg_img, text="FACE RECOGNITION", font=("Arial",20, "bold"),bg="lightgray", fg="yellow")
-        title_lable.place(x=0, y=0, width=1000,height=60)
+        title_lable.place(x=0, y=0, width=860,height=60)
 
-        # Training Button
-        b1_1=Button(self.root, text="FACE RECOGNITION", command=self.face_recog, cursor="hand2", bg="purple", fg="white")
-        b1_1.place(x=200,y=200, width=540, height=40)
+        # Face Recognition Button
+        imgbtn2 = Image.open(r"images\\faceRecognition.jpg")
+        imgbtn2 = imgbtn2.resize((200, 160))
+        self.btn2=ImageTk.PhotoImage(imgbtn2)
+
+        b2=Button(self.root, image=self.btn2, command=self.face_recog, cursor="hand2", bg="purple")
+        b2.place(x=320,y=200, width=200, height=160)
+
+        b2_1=Button(self.root, text="FACE RECOGNITION", command=self.face_recog, cursor="hand2", bg="purple", fg="white")
+        b2_1.place(x=320,y=360, width=200, height=40)
     
     #Attendance
     def mark_attendance(self, id, name, fname, dept):
-        with open("attendance.csv", "r+", newline="\n") as f:
-            myDataList = f.readlines()
+        with open("attendance.csv", "r+", newline="\n") as myFile:
+            myDataList = myFile.readlines()
             name_list = []
-            #print(myDataList)
+            print(myDataList)
 
             for line in myDataList:
                 entry = line.split((","))
@@ -64,14 +71,14 @@ class Face_Recognition:
                 now = datetime.now()
                 d1 = now.strftime("%d/%m/%Y")
                 dtString = now.strftime("%H:%M:%S")
-                f.writelines(f"\n{id},{name},{fname},{dept},{dtString}, {d1}, Present")
+                myFile.writelines(f"\n{id},{name},{fname},{dept},{dtString}, {d1}, Present")
 
     #Face Recognition
     def face_recog(self):
         def draw_boundry(img, classifier, scaleFactor, minNeighbors, color, text, clf):
             gray_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
             features = classifier.detectMultiScale(gray_image, scaleFactor, minNeighbors)
-
+            
             coord = []
 
             for (x, y, w, h) in features:

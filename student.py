@@ -295,7 +295,7 @@ class Student:
         self.var_father_name.set(data[6]),
         self.var_address.set(data[7]),
         self.var_phone.set(data[8]),
-        self.var_radio1.set(data[9]),
+        self.var_radio1.set(data[9])
       
     #To update table data into form after click on record
     def update_data(self):
