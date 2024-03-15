@@ -47,7 +47,6 @@ Users should be able to:
 
 
 ## Links
-# NOT UPDATED YET
 - Solution URL: (https://github.com/EduCreative/Python-Projects-SAMS.git)
 
 ## My process
