@@ -1,6 +1,7 @@
 from tkinter import*
 from tkinter import ttk
 from PIL import Image, ImageTk
+import tkinter
 import os
 
 from student import Student
@@ -92,10 +93,10 @@ class Face_Recognition_System:
         imgbtn8 = imgbtn8.resize((200, 160))
         self.btn8=ImageTk.PhotoImage(imgbtn8)
 
-        b8=Button(bg_img, image=self.btn8, cursor="hand2", bg="red")
+        b8=Button(bg_img, image=self.btn8, command=self.iExit, cursor="hand2", bg="red")
         b8.place(x=1020,y=400, width=200, height=160)
 
-        b8_8=Button(bg_img, text=" Exit ", cursor="hand2", font=("Arial",10, "bold"), bg="pink")
+        b8_8=Button(bg_img, text=" Exit ", command=self.iExit, cursor="hand2", font=("Arial",10, "bold"), bg="pink")
         b8_8.place(x=1020,y=560, width=200, height=40)
 
 
@@ -123,6 +124,13 @@ class Face_Recognition_System:
         self.new_window=Toplevel(self.root)
         self.app = Attendance(self.new_window)
 
+    
+    def iExit(self):
+        self.iExit = tkinter.messagebox.askyesno("Face Recognition", "Are you sure to Exit?", parent=self.root)
+        if self.iExit > 0:
+            self.root.destroy()
+        else:
+            return
 
 
 if __name__== "__main__":

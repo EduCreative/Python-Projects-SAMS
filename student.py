@@ -423,7 +423,7 @@ class Student:
 
                 cap.release()
                 cv2.destroyAllWindows()
-                messagebox.showinfo("Result", "Generating Data Sets Completed Successfully!")
+                messagebox.showinfo("Result", "Generating Data Sets Completed Successfully!", parent=self.root)
                 
 
             except Exception as es:

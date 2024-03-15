@@ -111,6 +111,8 @@ I need to practice Python by making more practical projects. And after completin
 ## Useful resources
 
 - [W3School](https://www.w3school.com) - This helped me for every thing as I use W3School as a reference tool.
+- [Youtube](https://www.youtube.com) - This helped me to seek help for different libraries and functions.
+
 
 ## Author
 

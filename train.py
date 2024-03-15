@@ -74,7 +74,7 @@ class Train:
         clf.write("classifier.xml")
         cv2.destroyAllWindows()
 
-        messagebox.showinfo("Result", "Training datasets completed!")
+        messagebox.showinfo("Result", "Training datasets completed!", parent=self.root)
 
 if __name__== "__main__":
     root = Tk()

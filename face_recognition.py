@@ -101,11 +101,13 @@ class Face_Recognition:
                 d = my_cursor.fetchone()
                 d = "+".join(d)
               
-                if confidence > 77:
-                    cv2.putText(img, f"Student ID:{id}",(x,y-75), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
-                    cv2.putText(img, f"Student Name:{n}",(x,y-55), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
-                    cv2.putText(img, f"Father Name:{f}",(x,y-30), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
-                    cv2.putText(img, f"Department:{d}",(x,y-5), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
+                if confidence > 70:
+                    cv2.putText(img, f"Student ID:{id}",(x,y-75), cv2.FONT_HERSHEY_DUPLEX, 0.8, (255, 255, 255), 3)
+                    cv2.putText(img, f"Student Name:{n}",(x,y-55), cv2.FONT_HERSHEY_DUPLEX, 0.8, (255, 255, 255), 3)
+                    # cv2.putText(img, f"Father Name:{f}",(x,y-30), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
+                    # cv2.putText(img, f"Department:{d}",(x,y-5), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
+                    cv2.putText(img, f"Confidence:{confidence}%",(x,y-5), cv2.FONT_HERSHEY_DUPLEX, 0.8, (255, 255, 255), 3)
+
                     self.mark_attendance(id, n, f, d)
                 else:
                     cv2.rectangle(img,(x,y),(x+w, y+h), (0, 0, 255), 3)
