@@ -48,8 +48,7 @@ Users should be able to:
 
 ## Links
 # NOT UPDATED YET
-- Solution URL: (https://github.com/EduCreative/FrontendMentor-result-summary.git)
-- Live Site URL: (https://educreative.github.io/FrontendMentor-result-summary/)
+- Solution URL: (https://github.com/EduCreative/Python-Projects-SAMS.git)
 
 ## My process
 For this project, I am using different resources like W3school, stackoverflow, Youtube tutorials, documentations, etc. And covering all aspects of project step by step.
@@ -61,8 +60,7 @@ For this project, I am using different resources like W3school, stackoverflow, Y
 ### Library installations
 - pip install Pillow
 - pip install mysql-connector-python
-- pip install Numpy
-- pip install mysql-connector-python
+- pip install numpy
 - pip install opencv-python
 
 
@@ -98,7 +96,8 @@ INSERT INTO `sams`.`student` (`std_id`, `student_name`, `father_name`, `Address`
 - Numpy
 - os
 - mysql-connector-python
-- opencv 
+- opencv
+- pillow
 
 ## What I learned
 
