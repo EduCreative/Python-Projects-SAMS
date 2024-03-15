@@ -41,7 +41,7 @@ class Face_Recognition_System:
         b1_1=Button(bg_img, text="Add Student Detail", command = self.student_details, cursor="hand2", bg="purple", fg="white", font=("Arial",10, "bold"))
         b1_1.place(x=100,y=260, width=200, height=40)
 
-        #button
+        #FACE RECOGNITION option
         imgbtn2 = Image.open(r"images\\faceRecognition.jpg")
         imgbtn2 = imgbtn2.resize((200, 160))
         self.btn2=ImageTk.PhotoImage(imgbtn2)
@@ -52,32 +52,30 @@ class Face_Recognition_System:
         b2_2=Button(bg_img, text="Face Recognition", command=self.face_data, cursor="hand2", bg="purple", fg="white", font=("Arial",10, "bold"))
         b2_2.place(x=100,y=560, width=200, height=40)
 
-        #button
-        imgbtn3 = Image.open(r"images\\attendance.jpg")
-        imgbtn3 = imgbtn3.resize((200, 160))
-        self.btn3=ImageTk.PhotoImage(imgbtn3)
-
-        b3=Button(bg_img, image=self.btn3, command=self.add_attendance, cursor="hand2", bg="purple")
-        b3.place(x=560,y=100, width=200, height=160)
-
-        b3_3=Button(bg_img, text="Attendance Record", command=self.add_attendance, cursor="hand2", bg="purple", fg="white", font=("Arial",10, "bold"))
-        b3_3.place(x=560,y=260, width=200, height=40)
-
-
-        #next row of buttons
-
-        #add button image
+        #TRAIN DATA option
         imgbtn5 = Image.open(r"images\\trainData.jpg")
         imgbtn5 = imgbtn5.resize((200, 160))
         self.btn5=ImageTk.PhotoImage(imgbtn5)
 
         b5=Button(bg_img, image=self.btn5, command=self.train_data, cursor="hand2", bg="purple")
-        b5.place(x=560,y=400, width=200, height=160)
+        b5.place(x=560,y=100, width=200, height=160)
 
         b5_5=Button(bg_img, text="Train Data", command=self.train_data, cursor="hand2", bg="purple", fg="white", font=("Arial",10, "bold"))
-        b5_5.place(x=560,y=560, width=200, height=40)
+        b5_5.place(x=560,y=260, width=200, height=40)
 
-        #button
+        #ATTENDANCE RECORD Option
+        imgbtn3 = Image.open(r"images\\attendance.jpg")
+        imgbtn3 = imgbtn3.resize((200, 160))
+        self.btn3=ImageTk.PhotoImage(imgbtn3)
+
+        b3=Button(bg_img, image=self.btn3, command=self.add_attendance, cursor="hand2", bg="purple")
+        b3.place(x=560,y=400, width=200, height=160)
+
+        b3_3=Button(bg_img, text="Attendance Record", command=self.add_attendance, cursor="hand2", bg="purple", fg="white", font=("Arial",10, "bold"))
+        b3_3.place(x=560,y=560, width=200, height=40)
+   
+
+        # Photos Folder
         imgbtn6 = Image.open(r"images\\photos.jpg")
         imgbtn6 = imgbtn6.resize((200, 160))
         self.btn6=ImageTk.PhotoImage(imgbtn6)
@@ -85,7 +83,7 @@ class Face_Recognition_System:
         b6=Button(bg_img, image=self.btn6, cursor="hand2", bg="blue", command=self.open_img,)
         b6.place(x=1020,y=100, width=200, height=160)
 
-        b6_6=Button(bg_img, command=self.open_img, text="Photos", cursor="hand2", bg="purple", fg="white", font=("Arial",10, "bold"))
+        b6_6=Button(bg_img, command=self.open_img, text="Photos Folder", cursor="hand2", bg="purple", fg="white", font=("Arial",10, "bold"))
         b6_6.place(x=1020,y=260, width=200, height=40)
 
         #button

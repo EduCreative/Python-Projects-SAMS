@@ -105,26 +105,26 @@ class Attendance:
         attendance_combo = ttk.Combobox(left_inside_frame, textvariable=self.var_attendance, font=("Arial", 10, "bold" ), state="readonly",width=17)
         attendance_combo["values"]=("Select Attendance", "Present", "Absent")
         # attendance_combo.current(0)
-        attendance_combo.grid(row=5, column=1, padx=2, pady=2)
+        attendance_combo.grid(row=5, column=1, padx=2, pady=10)
 
         #buttons frame
-        btn_frame = Frame(left_frame, bd=2,bg="green", relief=RIDGE)
-        btn_frame.place(x=0,y=180, width=340, height=200)
+        btn_frame = Frame(left_frame, bd=2,bg="lightgreen", relief=RIDGE)
+        btn_frame.place(x=10,y=200, width=340, height=100)
 
         #Save button
-        save_btn=Button(btn_frame, text="Import CSV", command=self.importCSV, width=8, font=("Arial", 10, "bold"))
-        save_btn.grid(row=0, column=0, padx=5)
+        save_btn=Button(btn_frame, text=" Import CSV ", command=self.importCSV, width=8, font=("Arial", 10, "bold"))
+        save_btn.grid(row=0, column=0, padx=5, pady=30)
 
         #Update button
-        update_btn=Button(btn_frame, text="Export CSV", command=self.exportCSV, width=8, font=("Arial", 10, "bold"))
+        update_btn=Button(btn_frame, text=" Export CSV ", command=self.exportCSV, width=8, font=("Arial", 10, "bold"))
         update_btn.grid(row=0, column=1, padx=5)
 
         #Delete button
-        delete_btn=Button(btn_frame, text="Update",  width=8, font=("Arial", 10, "bold"))
+        delete_btn=Button(btn_frame, text=" Update ",  width=8, font=("Arial", 10, "bold"))
         delete_btn.grid(row=0, column=2,padx=5)
 
         #Reset button
-        reset_btn=Button(btn_frame, text="Reset", command=self.reset_data, width=8, font=("Arial", 10, "bold"))
+        reset_btn=Button(btn_frame, text=" Reset ", command=self.reset_data, width=8, font=("Arial", 10, "bold"))
         reset_btn.grid(row=0, column=3, padx=5)
 
 
@@ -135,7 +135,7 @@ class Attendance:
         
         #Table frame
         table_frame = Frame(right_frame, bd=2, bg="lightgray", relief=RIDGE)
-        table_frame.place(x=10,y=120, width=380, height=360)
+        table_frame.place(x=10,y=20, width=380, height=360)
 
         scroll_x = ttk.Scrollbar(table_frame, orient=HORIZONTAL)
         scroll_y = ttk.Scrollbar(table_frame, orient=VERTICAL)
@@ -146,7 +146,7 @@ class Attendance:
         scroll_x.config(command=self.student_table.xview)
         scroll_y.config(command=self.student_table.yview)
 
-        self.student_table.heading("std_id", text="Student ID")
+        self.student_table.heading("std_id", text="Std ID")
         self.student_table.heading("student_name", text="Student Name")
         self.student_table.heading("father_name", text="Father Name")
         self.student_table.heading("dept", text="Department")
@@ -155,7 +155,7 @@ class Attendance:
         self.student_table.heading("attendance", text="Attendance")
         
 
-        self.student_table.column("std_id", width=100)
+        self.student_table.column("std_id", width=40)
         self.student_table.column("student_name", width=100)
         self.student_table.column("father_name", width=100)
         self.student_table.column("dept", width=100)
