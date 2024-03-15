@@ -51,10 +51,19 @@ Users should be able to:
 
 ## My process
 For this project, I am using different resources like W3school, stackoverflow, Youtube tutorials, documentations, etc. And covering all aspects of project step by step.
-- I would go for an eye catching design.
-- Than plan and make a well-defined database.
-- Study Facial Recognition and apply whatever I learn.
-- Study algorithms used for Facial Recognition and apply.
+- I went for an eye catching design by adding some free images (from freepik, unsplash, etc.) for menu buttons, and background images.
+- Made a database (not very well defined as it is just a practice project for students) using mysql server.
+- Facial Recognition: cv2 cascade classifier, haarcascade_frontalface_default.xml
+- Algorithm: LBPHFaceRecognizer
+
+## Project Sequence
+- First user must Add Student Details by using ADD STUDENT
+- Take student Photos (100 photos for training) by using TAKE PHOTO option in ADD STUDENT
+- Train Data sets by selecting TRAIN DATASETS menu option
+- Face Recoginition and take Attendance both are done at FACE RECOGNITION
+- Check to see, import, export (in CSV file) attendance.
+- You can also view all photos taken in PHOTOS
+
 
 ### Library installations
 - pip install Pillow
