@@ -29,7 +29,7 @@ class Student:
 
 
         #add background images
-        img = Image.open("H:\\My Drive\\Python-Projects-SAMS\\images\\9117392.jpg")
+        img = Image.open("images\\9117392.jpg")
         img = img.resize((1000,800))
         self.photoimg=ImageTk.PhotoImage(img)
 
