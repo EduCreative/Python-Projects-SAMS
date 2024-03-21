@@ -8,6 +8,7 @@ This is a Student Attendance Management System (SAMS) in Python to keep Student 
   - [The challenge](#the-challenge)
   - [Screenshot](#screenshot)
   - [Links](#links)
+  - [Installations](#installations)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
@@ -41,13 +42,34 @@ Users should be able to:
 ### Main Menu
 ![Screenshot (1)](https://github.com/EduCreative/Python-Projects-SAMS/blob/main/images/Screenshot1.png)
 ### Add Student Details
-![Screenshot (1)](https://github.com/EduCreative/Python-Projects-SAMS/blob/main/images/Screenshot2.png)
+![Screenshot (2)](https://github.com/EduCreative/Python-Projects-SAMS/blob/main/images/Screenshot2.png)
 ### Attendance Record
-![Screenshot (1)](https://github.com/EduCreative/Python-Projects-SAMS/blob/main/images/Screenshot3.png)
+![Screenshot (3)](https://github.com/EduCreative/Python-Projects-SAMS/blob/main/images/Screenshot3.png)
 
 
 ## Links
 - Solution URL: (https://github.com/EduCreative/Python-Projects-SAMS.git)
+
+## Installations
+- pip install Pillow
+- pip install mysql-connector-python
+- pip install numpy
+- pip install opencv-python
+
+In case if you find problem with cv2.face (as OpenCV has removed the cv2.face module from version 4.4.0 onwards), you need to install following:
+
+- pip install opencv-contrib-python
+  
+For details about this solution here on Stackoverflow:
+(https://stackoverflow.com/questions/45655699/attributeerror-module-cv2-face-has-no-attribute-createlbphfacerecognizer])
+
+And if you find problem with installing opencv-contrib-python, you need to install following:
+
+- pip install --upgrade pip setuptools wheel
+  
+For details about this solution here on Stackoverflow:
+(https://stackoverflow.com/questions/63732353/error-could-not-build-wheels-for-opencv-python-which-use-pep-517-and-cannot-be)
+
 
 ## My process
 For this project, I am using different resources like W3school, stackoverflow, Youtube tutorials, documentations, etc. And covering all aspects of project step by step.
@@ -64,15 +86,16 @@ For this project, I am using different resources like W3school, stackoverflow, Y
 - Check to see, import, export (in CSV file) attendance.
 - You can also view all photos taken in PHOTOS
 
-
-### Library installations
-- pip install Pillow
-- pip install mysql-connector-python
-- pip install numpy
-- pip install opencv-python
-
+### Libraries Used
+- mysql-connector-python (to use mysql database)
+- numpy (for calculation during image processing)
+- opencv-python (image processing)
+- os (for file operations like open, save, etc.)
+- Pillow (to process images)
+- tkinter (for GUI, buttons, frames, images, etc.)
 
 ### Database properties
+Make following in mysql local host to save student data.
 
 #Schema
 date base   `sams`
