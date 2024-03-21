@@ -9,14 +9,29 @@ from train import Train
 from face_recognition import Face_Recognition
 from attendace import Attendance
 
-Window_Geometry = "1420x840+20+20"
-sizeX = 1420
+Window_Geometry = "1320x840+20+20"
+sizeX = 1320
 sizeY = 840
 class Face_Recognition_System:
     def __init__(self, root):
         self.root=root
         self.root.geometry(Window_Geometry)
         self.root.title("Face Recognition Attendance System")
+        # self.root.eval('tk::PlaceWindow . center')
+
+        # To justify the main window to the center of the screen
+        # w = root.winfo_reqwidth()
+        # h = root.winfo_reqheight()
+        # ws = root.winfo_screenwidth()
+        # hs = root.winfo_screenheight()
+        # x = (ws/2) - (w/2)
+        # y = (hs/2) - (h/2)
+        # print(w, h, ws, hs, x, y)
+        # root.geometry('%dx%d+%d+%d' % (ws, hs, 0, 0)) ## this part allows you to only change the location
+
+
+
+
 
         #add background images
         img = Image.open("images\\9117392.jpg")
