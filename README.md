@@ -101,6 +101,29 @@ Make following in mysql local host to save student data.
 date base   `sams`
 
 ### Tables
+
+CREATE TABLE `sams`.`student` (
+  `std_id` INT NOT NULL,
+  `student_name` VARCHAR(45) NULL,
+  `father_name` VARCHAR(45) NULL,
+  `address` VARCHAR(45) NULL,
+  `phone` VARCHAR(45) NULL,
+  `dept` VARCHAR(45) NULL,
+  `course` VARCHAR(45) NULL,
+  `semester` VARCHAR(45) NULL,
+  `year` VARCHAR(45) NULL,
+  PRIMARY KEY (`std_id`));CREATE TABLE `sams`.`student` (
+  `std_id` INT NOT NULL,
+  `student_name` VARCHAR(45) NULL,
+  `father_name` VARCHAR(45) NULL,
+  `address` VARCHAR(45) NULL,
+  `phone` VARCHAR(45) NULL,
+  `dept` VARCHAR(45) NULL,
+  `course` VARCHAR(45) NULL,
+  `semester` VARCHAR(45) NULL,
+  `year` VARCHAR(45) NULL,
+  PRIMARY KEY (`std_id`));
+  
 Table       `student`
 Fields:
 `std_id`
